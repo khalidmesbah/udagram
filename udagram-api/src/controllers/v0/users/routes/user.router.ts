@@ -7,10 +7,6 @@ const router: Router = Router();
 
 router.use('/auth', AuthRouter);
 
-router.get("/", (req, res) => {
-  console.log("hei");
-});
-
 router.get("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   const item = await User.findByPk(id);
