@@ -33,7 +33,7 @@ jobs:
       - run:
           name: Front-End Deploy
           command: |
-            npm run backend:deploy
+            npm run frontend:deploy
       # - run:
       #     name: Front-End Test
       #     command: |
