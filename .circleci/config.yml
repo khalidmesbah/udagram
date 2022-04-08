@@ -48,10 +48,3 @@ jobs:
           name: Deploy Front-End S3
           command: |
             npm run frontend:deploy
-workflows:
-  basic-workflow:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: main
