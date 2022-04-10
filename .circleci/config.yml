@@ -9,6 +9,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
+      - checkout 
       - run:
           name: Front-End Install
           command: |
