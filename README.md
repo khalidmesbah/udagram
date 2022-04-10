@@ -62,3 +62,6 @@ The e2e tests are using Protractor and Jasmine.
 ## License
 
 [License](LICENSE.txt)
+
+- [ ] sync the main config.yml with the one in the pipeline porecess
+- [ ] 

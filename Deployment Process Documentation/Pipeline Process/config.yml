@@ -1,17 +1,17 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.1
-  aws-cli: circleci/aws-cli@3.0.0 
+  aws-cli: circleci/aws-cli@3.0.0
   eb: circleci/aws-elastic-beanstalk@2.0.1
 jobs:
-  build:
+  CI_CD:
     docker:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - checkout 
-      - aws-cli/setup 
-      - eb/setup 
+      - checkout
+      - aws-cli/setup
+      - eb/setup
       - run:
           name: "Checking Versions"
           command: |
@@ -25,21 +25,21 @@ jobs:
           command: |
             npm run frontend:install
       - run:
-          name: Front-End Build
-          command: |
-            npm run frontend:build
-      - run:
-          name: Front-End Test
-          command: |
-            npm run frontend:test
-      - run:
           name: Back-End Install
           command: |
             npm run backend:install
       - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:build
+      - run:
           name: Back-End Build
           command: |
             npm run backend:build
+      - run:
+          name: Front-End Test
+          command: |
+            npm run frontend:test
       - run:
           name: Back-End Test
           command: |
@@ -53,9 +53,9 @@ jobs:
           command: |
             npm run backend:deploy
 workflows:
-  basic-workflow:
+  udagram:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: master
+      - CI_CD:
+          filters:  
+            branches: 
+              only: master 
