@@ -4,6 +4,18 @@ orbs:
   aws-cli: circleci/aws-cli@3.0.0 
   eb: circleci/aws-elastic-beanstalk@2.0.1
 jobs:
+  install:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - run:
+          name: Front-End Install
+          command: |
+            npm run frontend:install
+      - run:
+          name: Back-End Install
+          command: |
+            npm run backend:install
   build:
     docker:
       - image: "cimg/base:stable"
@@ -21,10 +33,6 @@ jobs:
           command: |
             echo "Hello Universe"
       - run:
-          name: Front-End Install
-          command: |
-            npm run frontend:install
-      - run:
           name: Front-End Build
           command: |
             npm run frontend:build
@@ -32,10 +40,6 @@ jobs:
           name: Front-End Test
           command: |
             npm run frontend:test
-      - run:
-          name: Back-End Install
-          command: |
-            npm run backend:install
       - run:
           name: Back-End Build
           command: |
@@ -55,7 +59,13 @@ jobs:
 workflows:
   udagram:
     jobs:
+      - install:
+          filters:
+            branches:
+              only: master
       - build:
+          requires:
+            - install
           filters:
             branches:
               only: master
