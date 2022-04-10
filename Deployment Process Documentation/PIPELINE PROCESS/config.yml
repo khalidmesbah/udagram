@@ -53,7 +53,7 @@ jobs:
           command: |
             npm run backend:deploy
 workflows:
-  udagram:
+  basic-workflow:
     jobs:
       - build:
           filters:
