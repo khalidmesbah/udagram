@@ -61,10 +61,13 @@ jobs:
 workflows:
   udagram:
     jobs:
-      filters:
-        branches:
-          only: master
       - install
+          filters:
+            branches:
+              only: master
       - build:
           requires:
             - install
+          filters:
+            branches:
+              only: master
