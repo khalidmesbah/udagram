@@ -8,6 +8,7 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
+      - node/install
       - run:
           name: Front-End Install
           command: |
