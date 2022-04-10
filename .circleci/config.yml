@@ -10,7 +10,7 @@ jobs:
     executor: node/default
     steps:
       - checkout:
-          path: '../'
+          path: '../../udagram'
       - node/install-packages:
           app-dir: '../udagram-frontend'
       - node/install # install node
