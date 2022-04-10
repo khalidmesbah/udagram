@@ -6,17 +6,11 @@ orbs:
   eb: circleci/aws-elastic-beanstalk@2.0.1 # set up eb on the server
 jobs:
   CI:
-    working_directory: '../udagram-frontend'
-    executor: node/default
+    docker:
+      - image: "cimg/base:stable"
     steps:
-      - checkout:
-          path: '../../udagram'
-      - node/install-packages:
-          app-dir: '../udagram-frontend'
       - node/install # install node
       - checkout # make sure the app is working
-      - aws-cli/setup # install aws cli
-      - eb/setup # install eb cli
       - run:
           name: "Checking Versions"
           command: |
@@ -54,7 +48,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install # install node
-      - checkout # make sure the app is work
+      - checkout # make sure the app is workinb
       - aws-cli/setup # install aws cli
       - eb/setup # install eb cli
       - run:
