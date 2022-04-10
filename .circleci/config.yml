@@ -5,10 +5,14 @@ orbs:
   aws-cli: circleci/aws-cli@3.0.0 # setup aws cli on the server
   eb: circleci/aws-elastic-beanstalk@2.0.1 # set up eb on the server
 jobs:
-  CI_CD:
-    docker:
-      - image: "cimg/base:stable"
+  CI:
+    working_directory: '../udagram-frontend'
+    executor: node/default
     steps:
+      - checkout:
+          path: '../'
+      - node/install-packages:
+          app-dir: '../udagram-frontend'
       - node/install # install node
       - checkout # make sure the app is working
       - aws-cli/setup # install aws cli
@@ -45,6 +49,22 @@ jobs:
           name: Back-End Test
           command: |
             npm run backend:test
+  CD:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install # install node
+      - checkout # make sure the app is work
+      - aws-cli/setup # install aws cli
+      - eb/setup # install eb cli
+      - run:
+          name: "Checking Versions"
+          command: |
+            node --version
+      - run:
+          name: "Say Hello"
+          command: |
+            echo "Hello Universe"
       - run:
           name: Front-End Deploy
           command: |
@@ -53,11 +73,9 @@ jobs:
           name: Back-End Deploy
           command: |
             npm run backend:deploy
-# make sure that the pipeline will only run on the master branch
+# make sure that the pipeline will only run on the master branch and specify the order of the jobs
 workflows:
   udagram:
     jobs:
-      - CI_CD:
-          filters:  
-            branches: 
-              only: master 
+      - CI
+      - CD
