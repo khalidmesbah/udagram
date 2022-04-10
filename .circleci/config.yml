@@ -61,6 +61,7 @@ jobs:
 workflows:
   udagram:
     when:
+      or:
         - equal: [master, << pipeline.git.branch >>]
     jobs:
       - CI
