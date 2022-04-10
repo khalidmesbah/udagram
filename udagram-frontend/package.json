@@ -7,10 +7,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test-front": "echo \"no test specified\"",
+    "test": "echo 'testing the frontend'",
     "deploy": "chmod +x bin/deploy.sh && bin/deploy.sh"
   },
   "private": true,
