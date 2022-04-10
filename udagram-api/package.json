@@ -11,7 +11,7 @@
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo 'testing the backend'",
-    "deploy": "chmod +x bin/deploy.sh && bin/deploy.sh"
+    "deploy": "chmod +x './bin/deploy.sh' && './bin/deploy.sh'"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
