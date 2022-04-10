@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.1
-  aws-cli: circleci/aws-cli@3.0.0 
+  aws-cli: circleci/aws-cli@3.0.0
   eb: circleci/aws-elastic-beanstalk@2.0.1
 jobs:
   install:
@@ -9,7 +9,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - checkout 
+      - checkout
       - run:
           name: Front-End Install
           command: |
@@ -23,9 +23,9 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - checkout 
-      - aws-cli/setup 
-      - eb/setup 
+      - checkout
+      - aws-cli/setup
+      - eb/setup
       - run:
           name: "Checking Versions"
           command: |
@@ -60,14 +60,11 @@ jobs:
             npm run backend:deploy
 workflows:
   udagram:
+    when:
+      or:
+        - equal: [master, << pipeline.git.branch >>]
     jobs:
-      - install:
-          filters:
-            branches:
-              only: master
+      - install
       - build:
           requires:
             - install
-          filters:
-            branches:
-              only: master
