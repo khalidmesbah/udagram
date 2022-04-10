@@ -22,6 +22,8 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
+      - node/install
+      - checkout 
       - aws-cli/setup 
       - eb/setup 
       - run:
@@ -59,13 +61,10 @@ jobs:
 workflows:
   udagram:
     jobs:
-      - install:
-          filters:
-            branches:
-              only: master
+      filters:
+        branches:
+          only: master
+      - install
       - build:
           requires:
             - install
-          filters:
-            branches:
-              only: master
