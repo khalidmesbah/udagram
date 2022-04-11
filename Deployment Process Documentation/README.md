@@ -6,7 +6,7 @@
 - A central configuration file is used in order to set the environment variables and make them available to the code and it lives [here](../udagram-api/src/config/config.ts).
 - No authentication strings are hard-coded in the source code.
 - A project-level package.json file contains All the necessary scripts for installing, building, testing, deploying both the frontend and the backend is added and it lives [here](../package.json).
-- Screenshots of the AWS console indicate that RDS, EB and S3 are properly set up are available here [here](./Infrastructure%20Description/).
+- Screenshots of the AWS console indicate that RDS, EB and S3 are properly set up are available here [here](./AWS/).
 - The app is accessible via [this link](http://udagram-ui.s3-website-us-east-1.amazonaws.com).
 
 
@@ -19,7 +19,7 @@
 - All the secrets found in the application are configured inside CircleCi and passed to the production application. A screenshot of the configuration screen is present [here](./Pipeline%20Process/circleci/Environment-Variables-udagram.png) to show where secrets were added.
 
 > ## Diagrams
-- The submission contains a simple diagram giving a high-level [overview of the infrastructure](./Infrastructure%20Description/Udagram's%20Architecture%20diagram.png) and another diagram showing the [overview of the pipeline](./Pipeline%20Process/circleci%20pipeline%20daigram.png). The diagram Includes the different AWS services used for hosting the DB, API and
+- The submission contains a simple diagram giving a high-level [overview of the infrastructure](./AWS/Udagram's%20Architecture%20diagram.png) and another diagram showing the [overview of the pipeline](./Pipeline%20Process/circleci%20pipeline%20daigram.png). The diagram Includes the different AWS services used for hosting the DB, API and
 UI, A representation of the communication between the services is present in the diagrams (ex: arrows between services).
 
 > ## Pipeline Process Inside Circleci.

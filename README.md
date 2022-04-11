@@ -7,11 +7,14 @@ the Deployment Process Documentation lives [here](./Deployment%20Process%20Docum
 
 the link to the front end application lives [here](http://udagram-ui.s3-website-us-east-1.amazonaws.com)
 
+Screenshots of the AWS console indicate that RDS, EB and S3 are properly set up are available here [here](./Deployment%20Process%20Documentation/AWS/).
+
+
 > ## Getting Started
 
 1. Clone this repo locally into the location of your choice.
-1. Open a terminal and navigate to the root of the repo
-1. follow the instructions in the installation step
+2. Open a terminal and navigate to the root of the repo
+3. follow the instructions in the installation step
 
 > ### Dependencies
 
