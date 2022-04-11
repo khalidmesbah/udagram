@@ -1,16 +1,17 @@
-# Udagram
+> # Udagram - Hosting a Full-Stack Application
 
 The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
 
-## Getting Started
+> ## Deployment Process Documentation
+the Deployment Process Documentation lives [here](./Deployment%20Process%20Documentation/README.md).
+
+> ## Getting Started
 
 1. Clone this repo locally into the location of your choice.
 1. Open a terminal and navigate to the root of the repo
 1. follow the instructions in the installation step
 
-The project can run but is missing some information to connect to the database and storage service. These will be setup during the course of the project
-
-### Dependencies
+> ### Dependencies
 
 ```
 - Node v14.15.1 (LTS) or more recent. While older versions can work it is advisable to keep node to latest LTS version
@@ -62,6 +63,3 @@ The e2e tests are using Protractor and Jasmine.
 ## License
 
 [License](LICENSE.txt)
-
-- [ ] sync the main config.yml with the one in the pipeline porecess
-- [ ] 

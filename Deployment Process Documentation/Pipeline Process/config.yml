@@ -1,17 +1,17 @@
 version: 2.1
-orbs:
-  node: circleci/node@5.0.1
-  aws-cli: circleci/aws-cli@3.0.0
-  eb: circleci/aws-elastic-beanstalk@2.0.1
-jobs:
+orbs: # declaring the orbs for setting up the servers and softwares during the CI/CD process.
+  node: circleci/node@5.0.1 # setup node.js on the server.
+  aws-cli: circleci/aws-cli@3.0.0 # setup aws cli on the server.
+  eb: circleci/aws-elastic-beanstalk@2.0.1 # set up eb on the server.
+jobs: # For running a series of steps that run a series of commands.
   CI_CD:
-    docker:
+    docker: # Specify the primary container image.
       - image: "cimg/base:stable"
-    steps:
-      - node/install
-      - checkout
-      - aws-cli/setup
-      - eb/setup
+    steps: # A collection of excutable commands required to complete your job.
+      - node/install # install node.
+      - checkout # check the source code.
+      - aws-cli/setup # install aws cli.
+      - eb/setup # install eb cli.
       - run:
           name: "Checking Versions"
           command: |
@@ -52,10 +52,10 @@ jobs:
           name: Back-End Deploy
           command: |
             npm run backend:deploy
-workflows:
+workflows: # For orchestrating the jobs.
   udagram:
     jobs:
       - CI_CD:
           filters:  
             branches: 
-              only: master 
+              only: master # To make sure that the pipeline will only run on the master branch.

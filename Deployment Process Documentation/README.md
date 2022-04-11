@@ -1,4 +1,4 @@
-> # Hosting a Full-Stack Application - Udagram
+> # Hosting a Full-Stack Application Documentation
 
 > ## Preparing Source Code Infrastructure For Deployment
 
