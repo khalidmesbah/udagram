@@ -5,6 +5,8 @@ The udagram application is a fairly simple application that includes all the maj
 > ## Deployment Process Documentation
 the Deployment Process Documentation lives [here](./Deployment%20Process%20Documentation/README.md).
 
+the link to the front end application lives [here](http://udagram-ui.s3-website-us-east-1.amazonaws.com)
+
 > ## Getting Started
 
 1. Clone this repo locally into the location of your choice.
