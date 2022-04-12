@@ -44,7 +44,7 @@ UI, A representation of the communication between the services is present in the
 > ## Used Amazon Web Services
 - `RDS` to create a postgreSQL database.
 - `EB` to run a server and create a production Application and link it with the production environment and host the backend files.
-  - i have added the environment variables in the production environment.
-  - i have linked the database with the backend.
-  - i have linked the backed with the frontend.
+  - I have added the environment variables in the production environment.
+  - I have linked the database with the backend.
+  - I have linked the backend with the frontend.
 - `S3` to create a bucket for hosting the frontend files.
